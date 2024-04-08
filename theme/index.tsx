@@ -1,6 +1,5 @@
 import Theme from "rspress/theme";
 import { HomeLayout } from "./pages";
-
 const Layout = () => (
   <Theme.Layout
     afterFeatures={<HomeLayout />}
