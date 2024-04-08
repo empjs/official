@@ -1,0 +1,17 @@
+[
+    {
+        "type": "dir",
+        "name": "base",
+        "label": "基础"
+    },
+    {
+        "type": "dir",
+        "name": "build",
+        "label": "构建"
+    },
+    {
+        "type": "dir",
+        "name": "empShare",
+        "label": "共享"
+    }
+]

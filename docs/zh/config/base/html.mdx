@@ -1,0 +1,52 @@
+# html
++ 页面生成配置
++ 类型： `HtmlType`
+```js
+export interface HtmlType extends HtmlRspackPluginOptions {
+  /**
+   * 基于项目的根目录 index.html file path
+   * @default src/index.html
+   */
+  template?: string
+  /**
+   * 基于项目的根目录 favicon file path
+   * @default src/favicon.ico
+   */
+  favicon?: string
+  /**
+   * 网站语言
+   */
+  lang?: string
+  /**
+   * externals 文件插入到html
+   */
+  files?: {
+    /**
+     * 插入 css
+     */
+    css?: string[]
+    /**
+     * 插入 js
+     */
+    js?: string[]
+  }
+  /**
+   * 自定义 头部脚步内容 需要 template 配合 
+   * 参考 https://github.com/jantimon/html-webpack-plugin
+   */
+  tags?: {
+    headTags?: any[]
+    bodyTags?: any[]
+  }
+}
+```
+```ts title="emp-config.js"
+import {defineConfig} from '@empjs/cli'
+export default defineConfig(store => {
+  return {
+    html: {
+      template: 'src/index.html',
+    },
+  }
+})
+```

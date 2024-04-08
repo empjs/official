@@ -1,0 +1,14 @@
+[
+  "index",
+  "base",
+  "autoDevBase",
+  "appSrc",
+  "appEntry",
+  "plugins",
+  "html",
+  "entries",
+  "server",
+  "chain",
+  "define",
+  "resolve"
+]

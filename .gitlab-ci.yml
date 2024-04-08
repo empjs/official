@@ -1,0 +1,28 @@
+image: harbor.yy.com/front_end/emp:node20.11pnpm8.15
+
+stages:
+#- build
+#- deploy
+
+before_script:
+
+deploy-master:
+  tags:
+    - webfe
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - doc_build/
+      - package.json
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+  script:
+      - echo "deploy-main"
+      - echo -e "\n10.18.111.211 registry.npmjs.org registry.yarnpkg.com" >> /etc/hosts
+      - pnpm i
+      - pnpm build
+  only:
+    - main
+  when: manual

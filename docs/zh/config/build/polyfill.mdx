@@ -1,0 +1,29 @@
+# build.polyfill
++ 开启兼容模式
++ 类型： `entry` | `usage` | false
++ 默认值： false
+
+## polyfill.entry
+兼容代码注入到 入口文件里面
+
+## polyfill.usage
+按需添加兼容代码
+
+## build.coreJsFeatures
+:::tip
+选择core-js的兼容版本有助于切换适当的代码体积
+:::
++ 类型： `full` | `actual` | `stable` | `es`
++ 默认值： `stable`
+
+```ts title="emp-config.js"
+import {defineConfig} from '@empjs/cli'
+export default defineConfig(store => {
+  return {
+    build:{
+        polyfill:'usage',
+        coreJsFeatures:'stable'
+    }
+  }
+})
+```
