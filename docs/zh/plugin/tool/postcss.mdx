@@ -1,0 +1,38 @@
+# Postcss 插件
+
+## 快速开始
+
+### 安装插件
+import { PackageManagerTabs } from '@theme';
+
+<PackageManagerTabs command="add @empjs/plugin-postcss" />
+
+### 注册插件
+```ts title="emp-config.js"
+import {defineConfig} from '@empjs/cli'
+import pluginPostcss, {postcss as postcssPlugins} from '@empjs/plugin-postcss'
+export default defineConfig(store => {
+  return {
+    plugins:[
+      pluginPostcss({
+        postcssOptions: {
+          plugins: [
+            postcssPlugins.autoprefixer(), 
+           //vw
+            postcssPlugins.pxtovw(), 
+           //rem
+            postcssPlugins.pxtorem(), 
+            ],
+        },
+      }),
+    ],
+  }
+})
+
+```
+### Postcss 内置方法 
+> `postcss.autoprefixer`:兼容性设置,集成于`autoprefixer`
++ `postcss.pxtorem`:px转rem,集成于`postcss-pxtorem`
++ `postcss.pxtovw`:px转vw,集成于`@empjs/postcss-px-to-viewport`
+
+

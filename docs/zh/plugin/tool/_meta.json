@@ -1,4 +1,5 @@
 [
   "lightningcss",
+  "postcss",
   "postcss-px-to-viewport"
 ]
