@@ -18,10 +18,39 @@ export default defineConfig(store => {
         postcssOptions: {
           plugins: [
             postcssPlugins.autoprefixer(), 
-           //vw
-            postcssPlugins.pxtovw(), 
-           //rem
-            postcssPlugins.pxtorem(), 
+           /**
+            * px to vw
+            * 默认值
+            rootValue: 16,
+            unitPrecision: 5,
+            propList: ['*'],
+            selectorBlackList: [],
+            replace: true,
+            mediaQuery: false,
+            minPixelValue: 0
+           * 可通过传入参数进行替换
+           */
+            postcssPlugins.pxtovw({}), 
+           /**
+            * px to rem
+            * 默认值
+            unitToConvert: 'px',
+            viewportWidth: 320,
+            viewportHeight: 568,
+            unitPrecision: 5,
+            viewportUnit: 'vw',
+            fontViewportUnit: 'vw',
+            selectorBlackList: [],
+            propList: ['*'],
+            minPixelValue: 1,
+            mediaQuery: false,
+            replace: true,
+            landscape: false,
+            landscapeUnit: 'vw',
+            landscapeWidth: 568,
+           * 可通过传入参数进行替换
+           */
+            postcssPlugins.pxtorem({}), 
             ],
         },
       }),
