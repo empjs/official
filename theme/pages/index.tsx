@@ -2,6 +2,8 @@ import { NoSSR, usePageData } from "rspress/runtime";
 import { Benchmark } from "../components/Benchmark";
 import { BenchmarkCss } from "../components/BenchmarkCss"
 import QQ from "../components/QQ";
+import ShowHomeHero from "../components/Hero";
+
 
 import sm from './index.module.scss'
 export function HomeLayout() {
@@ -15,6 +17,7 @@ export function HomeLayout() {
       <NoSSR>
         <Benchmark />
         <BenchmarkCss />
+        <ShowHomeHero />
         <QQ />
       </NoSSR>
       {/* Footer */}
