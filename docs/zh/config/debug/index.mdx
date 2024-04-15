@@ -1,0 +1,36 @@
+# debug配置
++ 类型
+```
+export type DebugType = {
+  loggerLevel: LoggerType
+  clearLog: boolean
+  progress: boolean
+  showPerformance: boolean
+  newTreeshaking: boolean
+  ...
+}
+```
+## debug.loggerLevel
++ 控制台日志 
++ 类型 `debug` | `info` | `warn` | `error`
++ 默认 `info`
+
+## debug.clearLog
++ 自动清理控制台日志 
++ 类型 `boolean`
++ 默认 `true`
+
+## debug.progress
++ 项目构建进度
++ 类型 `boolean`
++ 默认 `true`
+
+## debug.showPerformance
++ 显示性能数据 `alpha`
++ 类型 `boolean`
++ 默认 `false`
+
+## debug.newTreeshaking
++ 弃用rspack新的构建方案
++ 类型 `boolean`
++ 默认 `ESM模式默认启动、其他关闭`
