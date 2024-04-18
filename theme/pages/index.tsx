@@ -18,7 +18,6 @@ export function HomeLayout() {
         <Benchmark />
         <BenchmarkCss />
         <ShowHomeHero />
-        <QQ />
       </NoSSR>
       {/* Footer */}
     </div>
