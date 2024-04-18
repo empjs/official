@@ -18,6 +18,9 @@ export default defineConfig({
     checkDeadLinks: true,
   },
   themeConfig: {
+    footer: {
+      message: '© 2019-2024 EMP TREAM Inc. All Rights Reserved.',
+    },
     socialLinks: [
       { icon: 'github', mode: 'link', content: 'https://github.com/empjs' },
     ],
