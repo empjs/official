@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 60px;
+    flex-wrap: wrap;
     .item_wrap {
         margin: 20px;
         display: flex;
@@ -12,7 +13,7 @@
         align-items: center;
         flex-direction: column;
         width: 160px;
-        height: 314px;
+        height: 330px;
         .qq {
             width: 160px;
             height: 160px;
@@ -42,17 +43,18 @@
         .button {
             background: linear-gradient(275deg, var(--rp-c-brand-dark) 3%, var(--rp-c-brand-light) 97%);
             border-radius: var(--rp-radius-large);
-            font-size: 16px;
+            font-size: 14px;
             min-width: 142px;
             font-weight: 700;
             display: inline-block;
             text-align: center;
             white-space: nowrap;
-            height: 48px;
-            line-height: 48px;
+            height: 30px;
+            line-height: 30px;
             color: #FFF;
             transition: all .3s ease;
             cursor: pointer;
+            margin-top: 10px;
             &:hover {
                 background-color: var(--rp-c-brand-light);
                 opacity: .8;
