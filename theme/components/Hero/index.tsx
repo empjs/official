@@ -18,7 +18,7 @@ export interface Hero {
 const heroList: Hero[] = [
     { name: 'Ken Xu', text: 'ckken', tagline: 'EMP Maintain', image: { src: 'https://avatars.githubusercontent.com/u/3890513?v=4', alt: 'ckken' }, actions: [{ text: 'Follow', link: 'https://github.com/ckken', theme: 'brand' }] },
     { name: 'Lin', text: 'linjunjain', tagline: 'EMP Admin', image: { src: 'https://avatars.githubusercontent.com/u/49704046?v=4', alt: 'linjunjain' }, actions: [{ text: 'Follow', link: 'https://github.com/linjunjain', theme: 'brand' }] },
-    { name: 'XIAO MING', text: 'doerme', tagline: 'EMP Admin', image: { src: 'https://avatars.githubusercontent.com/u/2680224?v=4', alt: 'doerme' }, actions: [{ text: 'Follow', link: 'https://github.com/doerme', theme: 'brand' }] },
+    { name: 'XIAOMING', text: 'doerme', tagline: 'EMP Admin', image: { src: 'https://avatars.githubusercontent.com/u/2680224?v=4', alt: 'doerme' }, actions: [{ text: 'Follow', link: 'https://github.com/doerme', theme: 'brand' }] },
     { name: 'Ron0115', text: 'ron0115', tagline: 'EMP Admin', image: { src: 'https://avatars.githubusercontent.com/u/20643950?v=4', alt: 'ron0115' }, actions: [{ text: 'Follow', link: 'https://github.com/ron0115', theme: 'brand' }] },
     { name: 'CWH0908', text: 'CWH0908', tagline: 'EMP Admin', image: { src: 'https://avatars.githubusercontent.com/u/48054560?v=4', alt: 'CWH0908' }, actions: [{ text: 'Follow', link: 'https://github.com/CWH0908', theme: 'brand' }] },
     { name: 'Abel', text: 'Really-Abel', tagline: 'EMP Admin', image: { src: 'https://avatars.githubusercontent.com/u/13212561?v=4', alt: 'Really-Abel' }, actions: [{ text: 'Follow', link: 'https://github.com/Really-Abel', theme: 'brand' }] }
