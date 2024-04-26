@@ -6,7 +6,7 @@ export default defineConfig({
   base: '/',
   root: path.join(__dirname, 'docs'),
   title: 'EMP - 基于Rust生态打造的高性能前端构建系统',
-  description: 'emp rust',
+  description: 'EMP, Rust, high-performance, frontend build system',
   icon: '/rspress-icon.png',
   lang: 'zh',
   logo: {
