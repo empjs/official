@@ -17,7 +17,7 @@ hero:
     alt: EMP Logo
 features:
   - title: 聚焦高性能 与 微前端
-    details: 基于Rspack、New ModuleFederation、Lightningcss、Biome进行重构 <br/> 结合 ESM 与 MF新特征进行全面定制 <br>起到高效构建与热更新的作用
+    details: 基于Rspack、New ModuleFederation进行重构 <br/> 结合 ESM 与 MF新特征进行全面定制 <br>起到高效构建与热更新的作用
     icon: ⚡️
   - title: 全面拥抱 Rust 生态
     details: 探索Rust的构建生态 <br/>引进 Rspack、Swc、LightningCss、Biome 等<br/>进行提效
