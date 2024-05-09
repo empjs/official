@@ -22,6 +22,32 @@ export default defineConfig(({mode, env}) => {
 })
 ```
 
+## FastMode 共享配置
+:::tip title="FastMode"
+基于 `module federation v2` 进行二次封装开发、目前EMP最优的共享模式 
+:::
+```ts title="emp-config.js"
+import {defineConfig} from '@empjs/cli'
+export default defineConfig(({mode, env}) => {
+  return {
+    empShare: {
+      fastMode: {
+        runtimeHost:'二次封装库、包含基础库、sdk等',
+        framework: 'react',
+      },
+      name: 'unpkglib',
+      exposes: {
+        './App': './src/App',
+      },
+      shared: {
+        react: {singleton: true},
+        'react-dom': {singleton: true},
+      },
+    },
+  }
+})
+```
+
 ## CDN共享配置
 ```ts title="emp-config.js"
 import {defineConfig} from '@empjs/cli'
@@ -44,7 +70,7 @@ export default defineConfig((store) => {
       exposes: {
         './App': './src/App',
       },
-      shareLib
+      shareLib,
     },
   }
 })
@@ -69,7 +95,7 @@ export default defineConfig(store => {
           'react/jsx-dev-runtime': 'https://esm.sh/react/jsx-dev-runtime.js',
           'react/jsx-runtime': 'https://esm.sh/react/jsx-runtime.js',
     },
-    //开启 importMap
+    //是否开启 importMap
     useImportMap:true,
     },
   }
