@@ -1,14 +1,15 @@
 [
-  "index",
-  "base",
-  "autoDevBase",
-  "appSrc",
-  "appEntry",
-  "plugins",
-  "html",
-  "entries",
-  "server",
-  "chain",
-  "define",
-  "resolve"
+	"index",
+	"base",
+	"autoDevBase",
+	"autoPages",
+	"appSrc",
+	"appEntry",
+	"plugins",
+	"html",
+	"entries",
+	"server",
+	"chain",
+	"define",
+	"resolve"
 ]
