@@ -22,7 +22,7 @@ export default defineConfig({
       message: '© 2019-2024 EMP TREAM Inc. All Rights Reserved.',
     },
     socialLinks: [
-      { icon: 'github', mode: 'link', content: 'https://github.com/empjs' },
+      { icon: 'github', mode: 'link', content: 'https://github.com/empjs/emp' },
     ],
     locales: [
       {
