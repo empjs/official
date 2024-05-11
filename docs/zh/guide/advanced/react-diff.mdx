@@ -54,4 +54,6 @@ cd projects/emp-runtime-react-16-app
 + react 16 
 + mobx 6
 
+主项目`react 16`使用 `FastMode`模式，基站项目`react 18`为常规`module Federation2.0`插件配置，在项目中，主项目使用`EMP Runtime`运行时注册`react18`基站的组件，并使用`EMP Runtime withReactAdepter`实例化`react18`基站组件，让其在`react16`项目中正常运行，同时`react16`的组件使用`EMP Runtime withReactAdepter`实例化的形式插入到远程的`react18`组件之中。
+
 <img src="https://hd-static.yystatic.com/0009975609517240969.png" />
