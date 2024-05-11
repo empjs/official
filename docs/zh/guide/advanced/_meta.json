@@ -1,8 +1,1 @@
-[
-  "alias",
-  "vue2",
-  "vue3",
-  "react",
-  "env-vars",
-  "hmr"
-]
+["alias", "vue2", "vue3", "react", "react-diff", "env-vars", "hmr"]
