@@ -2,11 +2,42 @@ import Preparation from '../../shared/preparation.md'
 import { Tabs, Tab, PackageManagerTabs } from '@theme';
 
 # React 多版本互调
-## 调用依赖 
-+ FastMode Runtime
-+ react 18
-+ react 16 
-+ mobx 6
+
+demo项目仓库 `emp-show-case`:
+
+```bash
+git clone https://github.com/empjs/emp-show-case
+```
+
+:::danger 🚨 可能遇到的错误
+如果您无法拉取项目至本地，请检查您的网络环境或代理设置是否可以访问github，如果仍不能解决，请联系我们。
+:::
+
+在拉取完成代码后，我们进入代码的根目录，安装项目依赖，推荐使用`PNPM`进行安装：
+
+<PackageManagerTabs command="install" />
+
+安装完依赖后，运行 `projects/emp-runtime-react-16-app` 示例项目。
+
+## 运行示例项目
+
+:::warning ⚠️ 注意
+在运行示例项目之前，请确保您已经完成了前期准备，并当前目录处于`emp-show-case`仓库的根目录下。
+:::
+
+### mf-host
+
+首先进入示例项目的根目录：
+
+```bash
+cd projects/emp-runtime-react-16-app
+```
+
+然后运行代码：
+<PackageManagerTabs command="dev" />
+
+运行成功后，您可以访问`http://localhost:4002/`进行查看。
+
 
 ## 演示效果
 
@@ -16,3 +47,11 @@ import { Tabs, Tab, PackageManagerTabs } from '@theme';
   style={{width: '100%', height: '1100px', border: `20px solid #aaa`, borderRadius: '4px', overflow: 'hidden'}}
   title="mf-host"
 ></iframe>
+
+## 调用依赖 
++ FastMode Runtime
++ react 18
++ react 16 
++ mobx 6
+
+<img src="https://hd-static.yystatic.com/0009975609517240969.png" />
