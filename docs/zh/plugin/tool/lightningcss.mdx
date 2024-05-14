@@ -21,9 +21,9 @@ export default defineConfig(store => {
         lightningcssPlugin({
         transform: {
             // px to rem
-          visitor:postcss.px_to_rem({rootValue: 16, excludeSelectors: [], minPixelValue: 1}),
+          visitor:postcss.pxtorem({rootValue: 16, excludeSelectors: [], minPixelValue: 1}),
           // or px to vw
-          visitor:postcss.px_to_viewport({
+          visitor:postcss.pxtovw({
             designWidth: 320,
             minPixelValue: 1,
             excludeSelectors: [],
