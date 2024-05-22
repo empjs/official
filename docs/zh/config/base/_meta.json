@@ -11,5 +11,6 @@
 	"server",
 	"chain",
 	"define",
-	"resolve"
+	"resolve",
+	"css"
 ]

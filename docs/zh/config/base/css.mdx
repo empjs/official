@@ -1,0 +1,26 @@
+# css
+:::tip
+css 快捷设置方式
+:::
+## css.sass
++ 类型： `default` | `embedded` 
++ 默认值： `embedded`
+
+```ts title="emp-config.js"
+import {defineConfig} from '@empjs/cli'
+export default defineConfig(store => {
+  return {
+    css:{
+        // 启用 sass-embedded
+        sass:'embedded'
+    }
+  }
+})
+```
+
+### sass-embedded
+> [详细介绍](https://www.npmjs.com/package/sass-embedded)
+
+这个软件包是 sass 包的替代品。它支持与 sass 相同的 JS API 并由同一个团队维护，但与纯 JavaScript 的 sass 包不同，sass-embedded 是围绕本地 Dart 可执行文件的 JavaScript 包装器。这意味着 sass-embedded 通常会更快，尤其是对于大型 Sass 编译，但它只能安装在 Dart 支持的平台上：Windows、Mac OS 和 Linux。
+
+尽管是不同的软件包，但由于它们具有相同的底层实现，因此 sass 和 sass-embedded 都被视为 "Dart Sass"。自 sass-embedded 包的第一个稳定版本发布以来，这两个包同时发布，并共享相同的版本号。
