@@ -7,8 +7,19 @@ import { Badge } from '@theme';
 css 快捷设置方式
 :::
 ## css.sass
-+ 类型： `default` | `embedded` 
-+ 默认值： `default`
++ 类型
+```ts
+  api?: 'modern' | 'modern-compiler'
+  sassOptions?: SassOptions<'async'>
+  mode?: 'default' | 'modern'
+  implementation?: object | string
+```
+
++ 默认为 
+```js
+  api = 'modern-compiler'
+  mode = 'modern'
+```
 
 ```ts title="emp-config.js"
 import {defineConfig} from '@empjs/cli'
