@@ -4,3 +4,14 @@
 import Overview from '@components/Overview';
 
 <Overview list={OVERVIEW_PLUGINS} />
+
+> 可以参考配置如下:
+```ts title="emp-config.js"
+import pluginReact from '@empjs/plugin-react'
+import {defineConfig} from '@empjs/cli'
+export default defineConfig(store => {
+  return {
+    plugins:[pluginReact({svgrQuery: 'react'})]
+  }
+})
+```
