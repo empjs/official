@@ -1,5 +1,6 @@
 import * as path from "path";
 import { defineConfig } from "rspress/config";
+import { rsbuildPluginOverview } from "./theme/rsbuildPluginOverview";
 
 export default defineConfig({
 	// lang: 'zh',
@@ -43,9 +44,10 @@ export default defineConfig({
 		],
 	},
 	builderConfig: {
+		plugins: [rsbuildPluginOverview],
 		source: {
 			alias: {
-				"@components": path.join(__dirname, "src/components"),
+				"@components": path.join(__dirname, "components"),
 				"@en": path.join(__dirname, "docs/en"),
 				"@zh": path.join(__dirname, "docs/zh"),
 			},
