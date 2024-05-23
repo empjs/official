@@ -5,7 +5,12 @@ import type { Group } from "../components/Overview";
 
 const camelCase = (input: string): string =>
 	input.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
-
+const prifixName = (input: string) => {
+	let cb = input;
+	cb += ".";
+	if (input === "base") return "";
+	return cb;
+};
 export const rsbuildPluginOverview: RsbuildPlugin = {
 	name: "rsbuild-doc:overview",
 
@@ -14,7 +19,7 @@ export const rsbuildPluginOverview: RsbuildPlugin = {
 		const globPath = path.join(root, "**/*.{mdx,md}");
 
 		const files = await glob(globPath);
-		console.log(files);
+		// console.log(files);
 		const groups: Group[] = [];
 
 		for (const file of files) {
@@ -27,7 +32,7 @@ export const rsbuildPluginOverview: RsbuildPlugin = {
 
 			const group = groups.find((group) => group.name === pair[0]);
 			const item = {
-				text: `${camelCase(pair[0])}.${camelCase(pair[1])}`,
+				text: `${prifixName(camelCase(pair[0]))}${camelCase(pair[1])}`,
 				link: `/config/${filename}`,
 			};
 			if (group) {
