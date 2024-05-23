@@ -50,7 +50,7 @@ export default defineConfig({
 		plugins: [rsbuildPluginOverview],
 		source: {
 			alias: {
-				"@components": path.join(__dirname, "components"),
+				"@components": path.join(__dirname, "theme/components"),
 				"@en": path.join(__dirname, "docs/en"),
 				"@zh": path.join(__dirname, "docs/zh"),
 			},
