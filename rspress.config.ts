@@ -18,6 +18,9 @@ export default defineConfig({
 	markdown: {
 		checkDeadLinks: true,
 	},
+	mediumZoom: {
+		selector: ".mediumZoom img",
+	},
 	themeConfig: {
 		footer: {
 			message: "© 2019-2024 EMP TREAM Inc. All Rights Reserved.",

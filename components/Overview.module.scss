@@ -40,6 +40,14 @@
     transition: background-color 0.5s;
 }
 
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.npm {}
+
 @media (max-width: 768px) {
     .root a {
         font-size: 14px;
