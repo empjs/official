@@ -14,7 +14,7 @@ export default defineConfig({
 		light: "/rspress-light-logo.png",
 		dark: "/rspress-dark-logo.png",
 	},
-	globalStyles: path.join(__dirname, "theme", "index.css"),
+	globalStyles: path.join(__dirname, "theme", "index.scss"),
 	markdown: {
 		checkDeadLinks: true,
 	},
