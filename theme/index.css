@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .m-4 {
     margin: 1rem;
 }
@@ -9,4 +13,10 @@
 
 #root .pb-12 .grid.z-10 {
     display: flex;
+}
+
+@media (min-width: 768px) {
+    #root .flex-col.md\:flex-row {
+        flex-direction: row;
+    }
 }
