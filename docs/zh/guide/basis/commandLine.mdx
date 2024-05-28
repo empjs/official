@@ -56,6 +56,11 @@ Options:
 
 `emp build` 命令默认会在 dist/ 目录下构建出可用于生产环境的产物。
 
+import { Badge } from '@theme';
+
+<Badge text="update in v3.0.0-rc.24 add [watch mode]" type="warning" />
+
+
 ```
 Usage: emp build [options]
 
@@ -65,6 +70,8 @@ Options:
   -t, --ts                          生成类型文件，默认为 false
   -pr, --profile                    统计模块消耗
   -cl, --clearLog <clearLog>        清空日志，默认为 true
+  -w, --watch                       watch 模式
+  -sv, --serve                      watch 模式下启动serve
   -ev, --env-vars <key=value>       定义一个环境变量，例如：-ev key=value，
                                     多个环境变量重复调用，例如：-ev key=value -ev key=value
 ```
