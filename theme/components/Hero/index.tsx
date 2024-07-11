@@ -33,7 +33,7 @@ const Hero = ({ hero }: { hero: Hero }) => {
         <div className={sm.name}>{hero.name}</div>
         <div className={sm.subname}>{hero.text}</div>
         <div className={sm.desc}>{hero.tagline}</div>
-        <div onClick={() => {window.open(hero.actions[0].link)}} className={sm.button}>{hero.actions[0].text}</div>
+        <div onClick={() => { window.open(hero.actions[0].link) }} className={sm.button}>{hero.actions[0].text}</div>
     </div>
 }
 
