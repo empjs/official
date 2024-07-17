@@ -5,6 +5,11 @@
 		"label": "插件总览"
 	},
 	{
+		"type": "file",
+		"name": "chainName",
+		"label": "配置对照"
+	},
+	{
 		"type": "dir",
 		"name": "tool",
 		"label": "构建"
