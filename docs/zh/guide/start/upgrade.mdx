@@ -26,6 +26,9 @@ import { Tabs, Tab, PackageManagerTabs } from '@theme';
 ```
 
 ### 4.修改 `emp-config.js`
+:::tip
+配置文件名也可以使用 typescript `emp.config.ts`文件
+:::
 
 #### 4.1 模块引入格式调整
 `EMP2.x`的配置默认使用 `commonjs` 模块规范，升级 `EMP3` 首要是把`commonjs`的模块引用方式修改为`ESM`的引用方式，则 `require` 和 `module.exports` 或 `exports` 改为 `import` 与 `export` 或 `export default`
@@ -42,3 +45,5 @@ export default defineConfig(async ({ mode, cliMode }) => {
     }
 }
 ```
+
+详细配置可以参考 [DEMO](https://github.com/empjs/emp/blob/v3/demos/react18/react-host/emp.config.ts)，其中用到的相关插件可以在 [插件](zh/plugin/index) 中查看使用说明。
