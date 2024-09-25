@@ -3,7 +3,7 @@ import { Tabs, Tab, PackageManagerTabs } from '@theme';
 # 从EMP2升级到EMP3
 
 ## 背景
-`EMP3`已经处于发布状态并落地在线上项目之中，经过多项目与`EMP2`比对，首次构建速度提升70%，二次构建速度提升80%，产物包体积缩小24%以上。
+`EMP3`已经处于发布状态并落地在线上项目之中，经过多项目与`EMP2`比对，首次构建速度提升`70%`，二次构建速度提升`80%`，产物包体积缩小`25%`以上。
 
 ## 升级步骤
 
@@ -21,7 +21,7 @@ import { Tabs, Tab, PackageManagerTabs } from '@theme';
 
 ### 3.修改 `package.json`
 `EMP3` 建议使用 ESM 模块系统，在package.json中添加如下配置
-```json
+```json title="package.json"
 "type": "module",
 ```
 
@@ -35,7 +35,7 @@ import { Tabs, Tab, PackageManagerTabs } from '@theme';
 
 #### 4.2 模块返回结果调整
 `EMP3`配置需要返回 `defineConfig` 函数的执行结果，调整如下:
-```javascript
+```javascript title="emp-config.js
 import { defineConfig } from '@empjs/cli'
 
 export default defineConfig(async ({ mode }) => {

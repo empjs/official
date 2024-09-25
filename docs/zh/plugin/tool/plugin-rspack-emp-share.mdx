@@ -1,0 +1,47 @@
+# RspackEmpShare 插件
+
+## 快速开始
+
+### 安装插件
+import { PackageManagerTabs } from '@theme';
+
+<PackageManagerTabs command="add @empjs/share" />
+
+### 注册插件
+
+
+```ts title="emp.config.ts"
+import {defineConfig} from '@empjs/cli'
+import {pluginRspackEmpShare} from '@empjs/share'
+export default defineConfig(store => {
+return {
+    plugins:[
+        pluginRspackEmpShare({
+            name: 'mfHost',
+            shared: {
+            react: {
+                singleton: true,
+                requiredVersion: '18',
+            },
+            'react-dom': {
+                singleton: true,
+                requiredVersion: '18',
+            },
+            },
+            exposes: {
+            './App': './src/App',
+            './CountComp': './src/CountComp',
+            },
+            empRuntime: {
+            runtimeLib: "https://unpkg.yy.com/@empjs/share@3.1.2/output/full.js",
+            frameworkLib: "https://unpkg.yy.com/@empjs/libs-18@0.0.1/dist",
+            frameworkGlobal: 'EMP_ADAPTER_REACT',
+            framework: 'react',
+            },
+            // experiments: {
+            //   federationRuntime: 'hoisted',
+            // },
+        }),
+    ]
+}
+```
