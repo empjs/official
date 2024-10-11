@@ -15,33 +15,172 @@ import {defineConfig} from '@empjs/cli'
 import {pluginRspackEmpShare} from '@empjs/share'
 export default defineConfig(store => {
 return {
-    plugins:[
-        pluginRspackEmpShare({
-            name: 'mfHost',
-            shared: {
-            react: {
-                singleton: true,
-                requiredVersion: '18',
-            },
-            'react-dom': {
-                singleton: true,
-                requiredVersion: '18',
-            },
-            },
-            exposes: {
-            './App': './src/App',
-            './CountComp': './src/CountComp',
-            },
-            empRuntime: {
-            runtimeLib: "https://unpkg.yy.com/@empjs/share@3.1.2/output/full.js",
-            frameworkLib: "https://unpkg.yy.com/@empjs/libs-18@0.0.1/dist",
-            frameworkGlobal: 'EMP_ADAPTER_REACT',
-            framework: 'react',
-            },
-            // experiments: {
-            //   federationRuntime: 'hoisted',
-            // },
-        }),
-    ]
+  plugins:[
+    pluginRspackEmpShare({
+        name: 'mfHost',
+        shared: {
+          react: {
+              singleton: true,
+              requiredVersion: '18',
+          },
+          'react-dom': {
+              singleton: true,
+              requiredVersion: '18',
+          },
+        },
+        exposes: {
+          './App': './src/App',
+          './CountComp': './src/CountComp',
+        },
+        empRuntime: {
+          runtimeLib: "https://unpkg.yy.com/@empjs/share@3.1.2/output/full.js",
+          frameworkLib: "https://unpkg.yy.com/@empjs/libs-18@0.0.1/dist",
+          frameworkGlobal: 'EMP_ADAPTER_REACT',
+          framework: 'react',
+        },
+        // experiments: {
+        //   federationRuntime: 'hoisted',
+        // },
+    }),
+  ]
 }
 ```
+## 配置说明
+
+### name
+
++ 类型：`string`
++ 是否必填：`是`
+
+Module Federation 模块名称，name 必须保证唯一。
+
+Module Federation 通过 name 进行关联。name 将用于运行时数据获取以及 chunk 全局存储变量
+
+[查看详情](https://module-federation.io/zh/configure/name.html)
+
+### shared
+`shared` 用于在消费者和生产间共享公共依赖，降低运行时下载体积从而提升性能。
+
+- 类型：`PluginSharedOptions`
+- 是否必填：否
+- 默认值：`undefined`
+
+`PluginSharedOptions` 类型如下：
+
+```tsx
+type PluginSharedOptions = string[] | SharedObject;
+
+interface SharedObject {
+  [sharedName: string]: SharedConfig;
+}
+
+interface SharedConfig {
+  singleton?: boolean;
+  requiredVersion?: string;
+  eager?: boolean;
+  shareScope?: string;
+}
+```
+
+- Example
+
+```ts
+new ModuleFederationPlugin({
+  name: '@demo/host',
+  shared: {
+    react: {
+      singleton: true,
+    },
+    'react-dom': {
+      singleton: true,
+    },
+  },
+  //...
+});
+```
+[查看详情](https://module-federation.io/zh/configure/shared.html)
+
+### exposes
+
+- 类型：`PluginExposesOptions`
+- 是否必填：否
+- 默认值：`undefined`
+- 使用场景：决定 `Module Federation` 对外暴露的模块以及文件入口
+
+:::tip
+生产者特有参数，设置了 `exposes` 则可认为这是一个生产者
+
+:::
+
+配置之后，会将 expose 的模块单独抽离成一个 chunk ，如果有异步 chunk 会在抽取成单独 chunk（具体拆分行为根据 chunk 拆分规则而定）。
+
+`PluginExposesOptions` 类型如下：
+
+```tsx
+interface PluginExposesOptions {
+  [exposeKey: string]: string | ExposesConfig;
+}
+
+interface ExposesConfig {
+  // 文件入口
+  import: string;
+}
+```
+
+其中 `exposeKey` 与 [Package Entry Points](https://nodejs.org/api/packages.html#package-entry-points) 规范基本一致（除了不支持正则匹配）。
+
+举例：
+
+```jsx
+module.exports = {
+  plugins: [
+    new ModuleFederation({
+      name: 'provider',
+      exposes: {
+        // 注意： 不支持 "./"，为 . 导出是表示为 default 默认导出
+        '.': './src/index.tsx',
+        './add': './src/utils/add.ts',
+        './Button': './src/components/Button.tsx',
+      },
+    }),
+  ],
+};
+```
+[查看详情](https://module-federation.io/zh/configure/exposes.html)
+
+
+### empRuntime.runtimeLib
+- 类型：`string | 'useFrameworkLib'`
+- 是否必填：否
+
+MFRuntime 远程地址
+
+### empRuntime.runtimeGlobal
+- 类型：`string`
+- 是否必填：否
+
+MFRuntime 全局命名
+
+### empRuntime.frameworkLib
+- 类型：`string`
+- 是否必填：否
+
+UI框架 远程地址
+
+### empRuntime.frameworkGlobal
+- 类型：`string`
+- 是否必填：否
+
+UI框架 全局命名
+
+### empRuntime.framework
+- 类型：`'react' | 'vue2' | 'vue'`
+- 是否必填：否
+
+快捷设置 external 默认为 react
+
+### empRuntime.shareLib
+- 类型：`{[key: string]: string | string[] | {entry: string; global: string; type: string}}`
+- 是否必填：否
+
+兼容 emp2.0 shareLib 配置
