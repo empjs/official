@@ -85,18 +85,18 @@ interface SharedConfig {
 - Example
 
 ```ts
-new ModuleFederationPlugin({
-  name: '@demo/host',
-  shared: {
-    react: {
-      singleton: true,
-    },
-    'react-dom': {
-      singleton: true,
-    },
-  },
-  //...
-});
+plugins:[
+    pluginRspackEmpShare({
+      name: '@demo/host',
+      shared: {
+        react: {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        },
+      },
+    })]
 ```
 [查看详情](https://module-federation.io/zh/configure/shared.html)
 
@@ -134,7 +134,7 @@ interface ExposesConfig {
 ```jsx
 module.exports = {
   plugins: [
-    new ModuleFederation({
+    pluginRspackEmpShare({
       name: 'provider',
       exposes: {
         // 注意： 不支持 "./"，为 . 导出是表示为 default 默认导出
@@ -184,3 +184,20 @@ UI框架 全局命名
 - 是否必填：否
 
 兼容 emp2.0 shareLib 配置
+
+### empRuntime.setExternals
+- 类型：`(o: [key: string]: string) => void`
+- 是否必填：否
+
+自定义 `externals` 配置
+```jsx
+module.exports = {
+  plugins: [
+    pluginRspackEmpShare({
+      setExternals: (o => {
+        o[ReactRouterDOM] = `EMP_ADAPTER_REACT.ReactRouterDOM`
+      })
+    }),
+  ],
+};
+```
