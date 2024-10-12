@@ -195,7 +195,9 @@ module.exports = {
   plugins: [
     pluginRspackEmpShare({
       setExternals: (o => {
-        o[ReactRouterDOM] = `EMP_ADAPTER_REACT.ReactRouterDOM`
+        o['history'] = 'EMP_ADAPTER_REACT.History'
+        o['react-router'] = 'EMP_ADAPTER_REACT.ReactRouter'
+        o['react-router-dom'] = 'EMP_ADAPTER_REACT.ReactRouterDOM'
       })
     }),
   ],
