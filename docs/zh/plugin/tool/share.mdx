@@ -217,6 +217,53 @@ interface PluginDtsOptions {
 [查看详情](https://module-federation.io/zh/configure/dts.html)
 
 
+### manifest
+
+
+- 类型：`boolean | PluginManifestOptions`
+- 默认值：`undefined`
+
+用于控制是否生成 manifest ，以及对应的生成配置。
+
+`PluginManifestOptions` 类型如下：
+
+```ts
+interface PluginManifestOptions {
+  filePath?: string;
+  disableAssetsAnalyze?: boolean;
+  fileName?: string;
+}
+```
+[查看详情](https://module-federation.io/zh/configure/manifest.html)
+
+### getPublicPath
+- 类型：`string`
+- 是否必填：否
+- 默认值：`undefined`
+- 作用：用于设置动态 publicPath，设置后，对应的远程模块资源也将使用此 publicPath。例如，部署的项目是动态下发 `cdn_prefix` ，那么可以设置 `getPublicPath` 为 `return "https:" + window.navigator.cdn_host + "/resource/app/"`
+
+- 示例：
+
+下面的示例中，设置了 `getPublicPath`，在其他消费者加载该生产者时，将会通过 `new Function` 的方式执行 `getPublicPath` 的代码获取到返回值，将会把返回值的内容作为该模块的 `publicPath` 静态资源前缀
+
+```ts title="rspack.config.ts"
+module.exports = {
+  plugins: [
+    pluginRspackEmpShare({
+      name: 'provider',
+      exposes: {
+        './Button': './src/components/Button.tsx',
+      },
+      // ...
+      getPublicPath: `return "https:" + window.navigator.cdn_host + "/resource/app/"`,
+    }),
+  ],
+};
+```
+
+[查看详情](https://module-federation.io/zh/configure/getpublicpath.html)
+
+
 ### empRuntime.runtimeLib
 - 类型：`string | 'useFrameworkLib'`
 - 是否必填：否
