@@ -9,6 +9,9 @@ import { Badge } from '@theme';
 <PackageManagerTabs command="add @empjs/share" />
 
 ### 注册插件
+:::info
+开发时无需安装 `react` & `react-dom`，如果ts，只需安装 `@types/react` & `@types/react-dom` 即可
+:::
 #### 配置方案 <Badge text="add in v3.4.5" type="warning" />
 ```ts title="emp.config.ts"
 import {defineConfig} from '@empjs/cli'
