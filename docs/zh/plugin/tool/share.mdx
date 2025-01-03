@@ -4,12 +4,50 @@
 
 ### 安装插件
 import { PackageManagerTabs } from '@theme';
+import { Badge } from '@theme';
 
 <PackageManagerTabs command="add @empjs/share" />
 
 ### 注册插件
-
-
+#### 配置方案 <Badge text="add in v3.4.5" type="warning" />
+```ts title="emp.config.ts"
+import {defineConfig} from '@empjs/cli'
+import pluginReact from '@empjs/plugin-react'
+import {pluginRspackEmpShare} from '@empjs/share/rspack'
+export default defineConfig(store => {
+  const reactVersion = 19// 17~19可自由切换、实测能通过大部分业务场景、保持向下兼容原则
+  return {
+    plugins: [
+      pluginReact({
+        version: reactVersion,
+      }),
+      pluginRspackEmpShare({
+        // module federation runtime & sdk 配置 基于 0.6.10 小部分重构 支持external
+        empRuntime: {
+          runtime: {
+            // mf sdk 地址
+            lib: `https://yourcdn.com/@empjs/share@3.4.5/output/sdk.js`,
+            // mf umd global name
+            global: `EMP_SHARE_RUNTIME`
+          },
+          // 框架以umd格式暴露
+          framework: {
+            name: 'react',
+            version: reactVersion,
+            // 最终访问地址 默认为 reactRouter.development.umd.js
+            entry: 'reactRouter',
+            // react umd global name
+            global: 'EMP_ADAPTER_REACT',
+            // 自动区分 dev & prod
+            lib: `https://yourcdn.com/@empjs/react@${reactVersion}/dist`,
+          },
+        },
+      }),
+    ],
+  }
+})
+```
+#### 老方法 依然能用
 ```ts title="emp.config.ts"
 import {defineConfig} from '@empjs/cli'
 import {pluginRspackEmpShare} from '@empjs/share'
