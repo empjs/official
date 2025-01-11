@@ -1,4 +1,4 @@
-# RspackEmpShare 插件
+# @empjs/share 插件
 
 ## 快速开始
 
@@ -10,8 +10,72 @@ import { Badge } from '@theme';
 
 ### 注册插件
 :::info
-开发时无需安装 `react` & `react-dom`，如果ts，只需安装 `@types/react` & `@types/react-dom` 即可
+> v3.5.3 会是 EMP 共享 的最终方案，后续所有配置都会围绕该配置方式推进
+
+#### 项目依赖
++ `@empjs/share@3.5.3`  
++ `@empjs/plugin-react@3.5.3` or `@empjs/plugin-vue3` or `@empjs/plugin-vue2`
++ `@empjs/cli@3.5.3`
+
+#### 如 React 与 Vue 的配置方案: 
+React ：开发时无需安装 `react` & `react-dom`，如果ts，只需安装 `@types/react` & `@types/react-dom` 即可
 :::
+#### 配置方案  <Badge text="add in v3.5.3" type="warning" />
+```ts title="emp.config.ts"
+import {defineConfig} from '@empjs/cli'
+import pluginReact from '@empjs/plugin-react'
+import {externalReact, pluginRspackEmpShare} from '@empjs/share/rspack'
+export default defineConfig(store => {
+  return {
+    plugins: [
+      pluginReact(),
+      pluginRspackEmpShare({
+        empRuntime: {
+          runtime: {
+            lib: `https://unpkg.yy.com/@empjs/share@3.5.3/output/sdk.js`,
+          },
+          framework: {
+            libs: [`https://unpkg.yy.com/@empjs/cdn-react@0.19.0/dist/reactRouter.${store.mode}.umd.js`],
+            global: 'EMP_ADAPTER_REACT',
+          },
+          setExternals: externalReact,
+        },
+      }),
+    ],
+  }
+})
+```
+:::info
+同理 Vue3 与 Vue2 的配置方案如下：
+依赖除类型外、也不会在生产环境打包
+:::
+```ts title="emp.config.ts"
+import {defineConfig} from '@empjs/cli'
+import pluginVue from '@empjs/plugin-vue3'// @empjs/plugin-vue2
+import {externalVue, pluginRspackEmpShare} from '@empjs/share/rspack'
+export default defineConfig(store => {
+  return {
+    plugins: [
+      pluginReact(),
+      pluginRspackEmpShare({
+        empRuntime: {
+          runtime: {
+            lib: `https://unpkg.yy.com/@empjs/share@3.5.3/output/sdk.js`,
+          },
+          framework: {
+            libs: [
+             `https://cdn.jsdelivr.net/npm/vue@3.5.13/dist/vue.runtime.global${store.mode === 'production' ? '.prod' : ''}.min.js`,// vue 2 同理
+            //  `https://cdn.jsdelivr.net/npm/vue-router@4.5.0/dist/vue-router.global.prod.js`, //如果需要用到 vue-router
+              ],
+            global: 'window',
+          },
+          setExternals: externalVue,
+        },
+      }),
+    ],
+  }
+})
+```
 #### 配置方案 <Badge text="add in v3.4.5" type="warning" />
 ```ts title="emp.config.ts"
 import {defineConfig} from '@empjs/cli'
