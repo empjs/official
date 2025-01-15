@@ -32,10 +32,10 @@ export default defineConfig(store => {
       pluginRspackEmpShare({
         empRuntime: {
           runtime: {
-            lib: `https://unpkg.yy.com/@empjs/share@3.5.3/output/sdk.js`,
+            lib: `https://cdn.jsdelivr.net/npm/@empjs/share@3.5.3/output/sdk.js`,
           },
           framework: {
-            libs: [`https://unpkg.yy.com/@empjs/cdn-react@0.19.0/dist/reactRouter.${store.mode}.umd.js`],
+            libs: [`https://cdn.jsdelivr.net/npm/@empjs/cdn-react@0.19.0/dist/reactRouter.${store.mode}.umd.js`],
             global: 'EMP_ADAPTER_REACT',
           },
           setExternals: externalReact,
@@ -60,7 +60,7 @@ export default defineConfig(store => {
       pluginRspackEmpShare({
         empRuntime: {
           runtime: {
-            lib: `https://unpkg.yy.com/@empjs/share@3.5.3/output/sdk.js`,
+            lib: `https://cdn.jsdelivr.net/npm/@empjs/share@3.5.3/output/sdk.js`,
           },
           framework: {
             libs: [
@@ -138,8 +138,8 @@ return {
           './CountComp': './src/CountComp',
         },
         empRuntime: {
-          runtimeLib: "https://unpkg.yy.com/@empjs/share@3.1.2/output/full.js",
-          frameworkLib: "https://unpkg.yy.com/@empjs/libs-18@0.0.1/dist",
+          runtimeLib: "https://cdn.jsdelivr.net/npm/@empjs/share@3.1.2/output/full.js",
+          frameworkLib: "https://cdn.jsdelivr.net/npm/@empjs/libs-18@0.0.1/dist",
           frameworkGlobal: 'EMP_ADAPTER_REACT',
           framework: 'react',
         },
