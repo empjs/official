@@ -1,7 +1,8 @@
 import * as path from "path";
 import { defineConfig } from "rspress/config";
 import { rsbuildPluginOverview } from "./theme/rsbuildPluginOverview";
-
+import sitemap from "rspress-plugin-sitemap";
+//
 export default defineConfig({
 	// lang: 'zh',
 	base: "/",
@@ -46,8 +47,32 @@ export default defineConfig({
 			},
 		],
 	},
+	plugins: [
+		sitemap({ domain: "https://empjs.dev" }),
+	],
 	builderConfig: {
 		plugins: [rsbuildPluginOverview],
+		/* html: {
+			tags: [
+				{
+					tag: 'script',
+					attrs: {
+						src: 'https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.1.0-beta.3/libs/cn/index.js'
+					},
+				},
+				{
+					tag: 'script',
+					children: `new CozeWebSDK.WebChatClient({
+			config: {
+			  bot_id: '7469719010817703955',
+			},
+			componentProps: {
+			  title: 'EMP智能体',
+			},
+		  });`
+				}
+			]
+		}, */
 		source: {
 			alias: {
 				"@components": path.join(__dirname, "theme/components"),
